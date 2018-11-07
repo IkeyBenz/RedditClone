@@ -12,6 +12,7 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(methodOverride('_method'));
 
+app.use(require('./controllers/miscRoutes'));
 app.use('/posts', require('./controllers/posts'));
 
 app.listen(PORT, () => {
