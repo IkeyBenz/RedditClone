@@ -1,7 +1,7 @@
 const router = require('express').Router();
 const Post = require('../models/post');
 
-// Get Form
+// Get New Post Form
 router.get('/new', (req, res) => {
     res.render('posts/new');
 });
