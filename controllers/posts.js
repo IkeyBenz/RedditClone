@@ -1,6 +1,13 @@
 const router = require('express').Router();
 const Post = require('../models/post');
 
+// Index All Posts
+router.get('/', (req, res) => {
+    Post.find({}).then(posts => {
+        res.render('posts/index', { posts: posts });
+    });
+});
+
 // Get Form
 router.get('/new', (req, res) => {
     res.render('posts/new');
