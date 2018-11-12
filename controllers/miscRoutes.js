@@ -7,4 +7,10 @@ router.get('/', (req, res) => {
     });
 });
 
+router.get('/r/:subreddit', (req, res) => {
+    Post.find({ subreddit: req.params.subreddit }).then(posts => {
+        res.render('posts/index', { posts: posts });
+    });
+});
+
 module.exports = router;

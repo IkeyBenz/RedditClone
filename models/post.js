@@ -6,13 +6,18 @@ const PostSchema = new Schema({
   updatedAt: { type: Date },
   title: { type: String, required: true },
   url: { type: String, required: true },
-  summary: { type: String, required: true }
+  summary: { type: String, required: true },
+  subreddit: { type: String, required: true }
 });
 
 PostSchema.pre("save", function(next) {
   const now = new Date();
   this.updatedAt = now;
   this.createdAt = this.createdAt || now;
+  for (param in ['title', 'url', 'summary', 'subreddit']) {
+    if (!this[param])
+      return console.error(`Post ${param} is required and was not included in your attempted post.`);
+  }
   next();
 });
 

@@ -19,3 +19,5 @@ app.listen(PORT, () => {
     console.log('Runnning Reddit on ' + PORT);
     require('./data/database');
 });
+
+module.exports = {app}
