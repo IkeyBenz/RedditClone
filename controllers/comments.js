@@ -24,7 +24,6 @@ comments.post('/', (req, res) => {
         return Post.findById(req.postId)
     }).then(post => {
         post.comments.unshift(comment);
-        console.log(post.comments);
         return post.save();
     }).then(post => {
         res.redirect(`/posts/${req.postId}/`);
