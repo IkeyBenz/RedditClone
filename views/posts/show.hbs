@@ -5,5 +5,21 @@
     <a href="/r/{{post.subreddit}}">
       <p>{{post.subreddit}}</p>
     </a>
+    <p>
+      <a class="btn btn-primary" data-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample">
+        Comments &darr;
+      </a>
+    </p>
+    <div class="collapse" id="collapseExample">
+      <ul class="card card-body list-group">
+        {{#each post.comments as |comment|}}
+        <li class="list-group-item">
+          <p>{{comment.content}}</p>
+          <h6>{{comment.author}}</h6>
+        </li>
+        {{/each}}
+      </ul>
+      <a href="/posts/{{post._id}}/comments/new" class="btn btn-primary">New Comment</a>
+    </div>
   </div>
 </div>
